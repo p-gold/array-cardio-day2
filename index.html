@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array cardio day2</title>
+</head>
+<body>
+    <script>
+        const people = [
+            {name: 'wes', year: 1988},
+            {name: 'kait', year: 1986},
+            {name: 'irv', year: 1970},
+            {name: 'lux', year: 2015},
+        ];
+
+        const comments = [
+            {text: 'love this', id: 333422},
+            {text: 'super good', id: 092293},
+            {text: 'you are the best', id:998092},
+            {text: 'nice nice nice', id: 226553},
+        ];
+
+       const findAdult = people.some(person => ((new Date())
+            .getFullYear()) - person >= 19);
+            console.log(findAdult)
+
+            //array.prototype.every()
+            const findAllAdults = people.every(person => ((new Date())
+            .getFullYear()) - person.year >= 19);
+            console.log(findAllAdults)
+            
+            //array.prototype.find (returns the first item it finds)
+
+            const findComment = comments.find(comment => comment.id === 998092);
+            console.log(findComment);
+
+            //array.prototype.findIndex
+            const findCommentIndex = comments.findIndex(comment => comment.id === 226553);
+            console.log(findCommentIndex);
+            const newComments = [
+                ...comments.slice(0,findCommentIndex),
+                ...comments.splice(findCommentIndex, 1)
+            ];
+
+        //{text: 'super good', id: 092293},
+    </script>
+</body>
+</html>
